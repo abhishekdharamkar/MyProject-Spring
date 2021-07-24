@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>STUDENT DATA</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+body {text-align: center;
+		background-color:lightgreen}
+
+</style>
+</head>
+<body>
+
+    <h1>STUDENT  LIST</h1>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <form th:action="@{/}">
+    Filter: <input type="text" name="keyword" id="name" size="50" th:value="${keyword}"  required />
+    &nbsp;
+    <input type="submit"   value="Search" />
+    &nbsp;
+    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+</form>
+   
+    <br/><br/>
+    <div align="center">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+                <th>Roll No</th>
+                <th>Email</th>
+                <th>MobileNO</th>
+                <th style="background-color:#FF0000"> OPERATIONS </th>
+               <!--<th>   <a href="/new">ADD NEW</a></th>  --> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${liststudent}">
+                <td th:text="${student.id}">ID</td>
+				<td th:text="${student.Fname}">First Name</td>
+                <td th:text="${student.Lname}">Last Name</td>
+                <td th:text="${student.City}">City</td>
+                <td th:text="${student.Roll_No}">Roll No</td>
+                <td th:text="${student.email}">Email</td>
+                <td th:text="${student.Mobile}">Mobile No</td>
+               <td>
+                    <a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+                </td>
+                
+                  
+            </tr>
+        </tbody>
+    </table>
+
+		<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>
+</div>   
+</body>
+</html>

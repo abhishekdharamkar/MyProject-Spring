@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit DATA</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+body {text-align: center;
+		background-color:lightgreen}
+
+</style>
+</head>
+<body>
+    <div align="center">
+        <h1>Edit DATA</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${student}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" th:field="*{Fname}" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" th:field="*{Lname}" /></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" th:field="*{city}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>Roll no:</td>
+                    <td><input type="text" th:field="*{Roll_No}" /></td>
+                </tr> 
+                 <tr>
+                    <td>Email</td>
+                    <td><input type="email" th:field="*{Email}" /></td>
+                </tr>
+                 <tr>
+                    <td>Mobile-NO</td>
+                    <td><input type="tel"th:field="*{Mobile}" /></td>
+                </tr>                               
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
